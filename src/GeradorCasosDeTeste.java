@@ -6,11 +6,23 @@ public class GeradorCasosDeTeste {
             System.out.println("java GeradorCasosTesteTrabalho1 [total]");
             System.exit(1);
         }
+
         Random r = new Random();
         int total = Integer.parseInt(args[0]);
         char[] letras = { 'D', 'N', 'A' };
-        for (int i = 0; i < total; i++)
-            System.out.print(letras[r.nextInt(3)]);
-        System.out.println();
+        String dna = null;
+        for (int i = 0; i < total; i++) {
+            String caracter = String.valueOf(letras[r.nextInt(3)]);
+            if (dna == null) { // Primeiro caractere
+                dna = caracter;
+            } else {
+                dna += caracter;
+            }
+            System.out.print(caracter);
+        }
+        System.out.println("\n");
+
+        AlgortimoMutacoes algortimo = new AlgortimoMutacoes(dna);
+        System.out.println(algortimo.decomposicao());
     }
 }
