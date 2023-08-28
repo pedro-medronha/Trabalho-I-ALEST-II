@@ -12,14 +12,15 @@ public class Main {
     char[] leters = { 'D', 'N', 'A' };
     StringBuilder dnaBuilder = new StringBuilder();
 
+    System.out.println("Entrada:");
     for (int i = 0; i < total; i++) {
       char character = leters[r.nextInt(3)];
       dnaBuilder.append(character);
       System.out.print(character);
     }
-    System.out.println("\n");
+    System.out.println("\n"); // Quebra de linha
 
     DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
-    System.out.println(dna.mutation());
+    System.out.println("Resultado:\n" + dna.mutation());
   }
 }
