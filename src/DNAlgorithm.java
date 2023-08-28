@@ -41,27 +41,25 @@ public class DNAlgorithm {
   }
 
   private char generate(char baseOne, char baseTwo) {
-    char newBase = '0'; // Inicialização
-
     switch (baseOne) { // Verifica a nova base a ser gerada...
       case 'D':
         if (baseTwo == 'A')
-          newBase = 'N';
+          return 'N';
         if (baseTwo == 'N')
-          newBase = 'A';
+          return 'A';
         break;
       case 'N':
         if (baseTwo == 'A')
-          newBase = 'D';
+          return 'D';
         if (baseTwo == 'D')
-          newBase = 'A';
+          return 'A';
         break;
       case 'A':
         if (baseTwo == 'D')
-          newBase = 'N';
+          return 'N';
         if (baseTwo == 'N')
-          newBase = 'D';
+          return 'D';
     }
-    return newBase; // Retorna da nova base
+    return '#';
   }
 }
