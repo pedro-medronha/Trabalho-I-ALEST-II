@@ -18,14 +18,17 @@ public class AlgoritmoMutacoes {
 
         do {
             mutacao = false;
-            for (int i = 0; i < dnaSequencia.size() - 1; i++) {
+            for (int i=0; i<dnaSequencia.size() - 1; i++) {
                 char baseAtual = dnaSequencia.get(i);
                 char proxBase = dnaSequencia.get(i + 1);
 
                 if (baseAtual != proxBase) {
                     char novaBase = realizaMutacao(baseAtual, proxBase);
-                    dnaSequencia.set(i, novaBase);
-                    dnaSequencia.remove(i + 1);
+                    if (novaBase != '0') { // Se houve mutação...
+                        dnaSequencia.remove(i); // Remove as 2 bases antigas
+                        dnaSequencia.remove(i+1);
+                        dnaSequencia.add(novaBase); // Adiciona ao fim
+                    }
                     mutacao = true;
                     break;
                 }
@@ -46,7 +49,7 @@ public class AlgoritmoMutacoes {
                 (base1 == 'N' && base2 == 'A')) {
             return 'D';
         } else {
-            return base1;
+            return '0'; // Identificação de que não houve mutação
         }
     }
 }
