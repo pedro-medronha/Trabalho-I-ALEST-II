@@ -1,3 +1,13 @@
+/*
+ * Trabalho 1 - ALEST II
+ * Prof. Marcelo Cohen
+ * --------------------------
+ * Alunos: Bianca Alves e Pedro Medronha
+ * 
+ * Obs: necessário estipular no path .vscode/launch.json 
+ * o parâmetro args, para definir o tamanho da entrada
+ */
+
 import java.util.Random;
 
 public class Main {
