@@ -4,10 +4,19 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Trabalho-I-ALEST-II"
+        },
+        {
+            "type": "java",
             "name": "Debug (launch)",
             "request": "launch",
-            "mainClass": "GeradorCasosDeTeste",
-            "args": ["50"]
+            "mainClass": "Main",
+            "args": [
+                "10"
+            ]
         }
     ]
 }

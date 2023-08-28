@@ -1,5 +1,25 @@
+import java.util.Random;
+
 public class Main {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+  public static void main(String[] args) {
+    if (args.length == 0) {
+      System.out.println("java GeradorCasosTesteTrabalho1 [total]");
+      System.exit(1);
     }
+
+    Random r = new Random();
+    int total = Integer.parseInt(args[0]);
+    char[] leters = { 'D', 'N', 'A' };
+    StringBuilder dnaBuilder = new StringBuilder();
+
+    for (int i = 0; i < total; i++) {
+      char character = leters[r.nextInt(3)];
+      dnaBuilder.append(character);
+      System.out.print(character);
+    }
+    System.out.println("\n");
+
+    DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
+    System.out.println(dna.mutation());
+  }
 }
