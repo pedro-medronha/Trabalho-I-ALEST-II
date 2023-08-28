@@ -18,16 +18,16 @@ public class AlgoritmoMutacoes {
 
         do {
             mutacao = false;
-            for (int i=0; i<dnaSequencia.size() - 1; i++) {
+            for (int i = 0; i < dnaSequencia.size() - 1; i++) {
                 char baseAtual = dnaSequencia.get(i);
                 char proxBase = dnaSequencia.get(i + 1);
 
                 if (baseAtual != proxBase) {
                     char novaBase = realizaMutacao(baseAtual, proxBase);
                     if (novaBase != '0') { // Se houve mutação...
-                        dnaSequencia.remove(i); // Remove as 2 bases antigas
-                        dnaSequencia.remove(i+1);
                         dnaSequencia.add(novaBase); // Adiciona ao fim
+                        dnaSequencia.remove(i); // Remove as 2 bases antigas
+                        dnaSequencia.remove(i);
                     }
                     mutacao = true;
                     break;
@@ -39,17 +39,30 @@ public class AlgoritmoMutacoes {
     }
 
     private char realizaMutacao(char base1, char base2) {
-        if ((base1 == 'D' && base2 == 'A') ||
-                (base1 == 'A' && base2 == 'D')) {
-            return 'N';
-        } else if ((base1 == 'D' && base2 == 'N') ||
-                (base1 == 'N' && base2 == 'D')) {
-            return 'A';
-        } else if ((base1 == 'A' && base2 == 'N') ||
-                (base1 == 'N' && base2 == 'A')) {
-            return 'D';
-        } else {
-            return '0'; // Identificação de que não houve mutação
+        char newBase = '0';
+        switch (base1) {
+            case 'D':
+                if (base2 == 'A')
+                    newBase = 'N';
+                if (base2 == 'N')
+                    newBase = 'A';
+                break;
+            case 'N':
+                if (base2 == 'A')
+                    newBase = 'D';
+                if (base2 == 'D')
+                    newBase = 'A';
+                break;
+            case 'A':
+                if (base2 == 'D')
+                    newBase = 'N';
+                if (base2 == 'N')
+                    newBase = 'D';
+                break;
+            default:
+                return newBase;
         }
+
+        return newBase;
     }
 }

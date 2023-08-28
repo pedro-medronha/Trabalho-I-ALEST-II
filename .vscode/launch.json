@@ -7,7 +7,7 @@
             "name": "Debug (launch)",
             "request": "launch",
             "mainClass": "GeradorCasosDeTeste",
-            "args": ["10"]
+            "args": ["50"]
         }
     ]
 }
