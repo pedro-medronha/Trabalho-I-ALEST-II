@@ -1,0 +1,13 @@
+{
+    // Alterar o parâmetro "args" para o tamanho desejado
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (launch)",
+            "request": "launch",
+            "mainClass": "GeradorCasosDeTeste",
+            "args": ["3"]
+        }
+    ]
+}

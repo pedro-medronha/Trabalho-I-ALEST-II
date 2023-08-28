@@ -10,19 +10,17 @@ public class GeradorCasosDeTeste {
         Random r = new Random();
         int total = Integer.parseInt(args[0]);
         char[] letras = { 'D', 'N', 'A' };
-        String dna = null;
+        StringBuilder dnaBuilder = new StringBuilder();
+
         for (int i = 0; i < total; i++) {
-            String caracter = String.valueOf(letras[r.nextInt(3)]);
-            if (dna == null) { // Primeiro caractere
-                dna = caracter;
-            } else {
-                dna += caracter;
-            }
+            char caracter = letras[r.nextInt(3)];
+            dnaBuilder.append(caracter);
             System.out.print(caracter);
         }
+
         System.out.println("\n");
 
-        AlgortimoMutacoes algortimo = new AlgortimoMutacoes(dna);
-        System.out.println(algortimo.decomposicao());
+        AlgoritmoMutacoes algoritmo = new AlgoritmoMutacoes(dnaBuilder.toString());
+        System.out.println(algoritmo.decomposicao());
     }
 }
