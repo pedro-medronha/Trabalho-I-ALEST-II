@@ -1,10 +1,11 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DNAlgorithm {
-  private LinkedList<Character> dnaSequence;
+  private List<Character> dnaSequence;
 
   public DNAlgorithm(String dna) {
-    dnaSequence = new LinkedList<>();
+    dnaSequence = new ArrayList<>();
 
     for (char c : dna.toCharArray()) { // Preenche a lista
       dnaSequence.add(c);
