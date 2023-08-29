@@ -41,25 +41,14 @@ public class DNAlgorithm {
   }
 
   private char generate(char baseOne, char baseTwo) {
-    switch (baseOne) { // Verifica a nova base a ser gerada...
-      case 'D':
-        if (baseTwo == 'A')
-          return 'N';
-        if (baseTwo == 'N')
-          return 'A';
-        break;
-      case 'N':
-        if (baseTwo == 'A')
-          return 'D';
-        if (baseTwo == 'D')
-          return 'A';
-        break;
-      case 'A':
-        if (baseTwo == 'D')
-          return 'N';
-        if (baseTwo == 'N')
-          return 'D';
-    }
-    return '#';
+    // Verifica a nova base a ser gerada...
+    if (baseOne == 'D' && baseTwo == 'N' || baseOne == 'N' && baseTwo == 'D')
+      return 'A';
+    if (baseOne == 'A' && baseTwo == 'D' || baseOne == 'D' && baseTwo == 'A')
+      return 'N';
+    if (baseOne == 'N' && baseTwo == 'A' || baseOne == 'A' && baseTwo == 'N')
+      return 'D';
+    else
+      return '#';
   }
 }
