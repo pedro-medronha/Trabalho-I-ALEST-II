@@ -26,14 +26,14 @@ public class Main {
     for (int i = 0; i < total; i++) {
       char character = leters[r.nextInt(3)];
       dnaBuilder.append(character);
-      System.out.print(character);
+      // System.out.print(character);
     }
     System.out.println("\n"); // Quebra de linha
 
     long start = System.nanoTime();
     DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
-    long end = System.nanoTime();
     System.out.println("Resultado:\n" + dna.mutation());
+    long end = System.nanoTime();
     System.out.printf("Tempo: %d ns\n", end - start);
   }
 }
