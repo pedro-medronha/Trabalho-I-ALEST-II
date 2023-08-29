@@ -15,7 +15,7 @@
             "request": "launch",
             "mainClass": "Main",
             "args": [
-                "10"
+                "1000000"
             ]
         }
     ]

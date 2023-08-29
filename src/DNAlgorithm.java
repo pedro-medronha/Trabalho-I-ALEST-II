@@ -25,19 +25,19 @@ public class DNAlgorithm {
     do {
       change = false; // Iterador while
       for (int i = 0; i < dnaSequence.size() - 1; i++) { // Loop que percorre a lista
-        char current = dnaSequence.get(i);
-        char prox = dnaSequence.get(i + 1);
+        char current = dnaSequence.get(i); // <- 1 passo * n
+        char prox = dnaSequence.get(i + 1); // <- 1 passo * n
 
         if (current != prox) { // Se os caracteres são diferentes...
-          dnaSequence.add(generate(current, prox)); // Realiza mutação e adiciona ao fim
-          dnaSequence.remove(i); // Remove as 2 bases antigas
-          dnaSequence.remove(i);
+          dnaSequence.add(generate(current, prox)); // Realiza mutação e adiciona ao fim | <- 1 passo * n
+          dnaSequence.remove(i); // Remove as 2 bases antigas | <- 1 passo * n
+          dnaSequence.remove(i); // <- 1 passo * n
           change = true; // Valida o iterador
           break; // Interrompe a iteração para reinicar no começo da lista
         }
       }
-    } while (change);
-    return dnaSequence.toString(); // Retorna a lista com o resultado
+    } while (change); // <- 1 passo * n
+    return dnaSequence.toString(); // Retorna a lista com o resultado | 1 passo
   }
 
   private char generate(char baseOne, char baseTwo) {
