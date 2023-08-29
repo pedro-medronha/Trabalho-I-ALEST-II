@@ -30,7 +30,10 @@ public class Main {
     }
     System.out.println("\n"); // Quebra de linha
 
+    long start = System.nanoTime();
     DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
     System.out.println("Resultado:\n" + dna.mutation());
+    long end = System.nanoTime();
+    System.out.printf("Tempo: %d ns\n", end - start);
   }
 }
