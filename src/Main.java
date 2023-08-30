@@ -25,14 +25,15 @@ public class Main {
     for (int i = 0; i < total; i++) {
       char character = leters[r.nextInt(3)];
       dnaBuilder.append(character);
-      System.out.print(character); // Imprime entrada gerada
+      // System.out.print(character); // Imprime entrada gerada
     }
     // System.out.println("\n"); // Quebra de linha
 
     long start = System.nanoTime();
     DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
-    System.out.println("Resultado:\n" + dna.mutation()); // Imprime saída
+    System.out.println("Resultado: " + dna.mutation()); // Imprime saída
     long end = System.nanoTime();
-    System.out.printf("%d  %d\n", total, end - start);
+    System.out.println("\nEntrada \t Tempo(ns)");
+    System.out.printf("%d \t %d\n", total, end - start);
   }
 }
