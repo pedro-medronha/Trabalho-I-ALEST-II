@@ -14,7 +14,7 @@
             "name": "Debug (launch)",
             "request": "launch",
             "mainClass": "Main",
-            "args": ["100000"]
+            "args": ["5"]
         }
     ]
 }

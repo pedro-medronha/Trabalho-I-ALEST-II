@@ -8,18 +8,7 @@ public class DNAlgorithm {
   public DNAlgorithm(String dna) {
     dnaSequence = new LinkedList<>();
     cache = new HashMap<>();
-
-    cache.put('D', new HashMap<>());
-    cache.get('D').put('A', 'N');
-    cache.get('D').put('N', 'A');
-
-    cache.put('N', new HashMap<>());
-    cache.get('N').put('A', 'D');
-    cache.get('N').put('D', 'A');
-
-    cache.put('A', new HashMap<>());
-    cache.get('A').put('D', 'N');
-    cache.get('A').put('N', 'D');
+    cache = combination(cache);
 
     for (char c : dna.toCharArray()) { // Preenche a lista
       dnaSequence.add(c);
@@ -53,6 +42,22 @@ public class DNAlgorithm {
       }
     } while (change);
     return dnaSequence.toString(); // Retorna a lista com o resultado
+  }
+
+  private Map<Character, Map<Character, Character>> combination(Map<Character, Map<Character, Character>> cache) {
+    cache.put('D', new HashMap<>());
+    cache.get('D').put('A', 'N');
+    cache.get('D').put('N', 'A');
+
+    cache.put('N', new HashMap<>());
+    cache.get('N').put('A', 'D');
+    cache.get('N').put('D', 'A');
+
+    cache.put('A', new HashMap<>());
+    cache.get('A').put('D', 'N');
+    cache.get('A').put('N', 'D');
+
+    return cache;
   }
 
   private char generate(char baseOne, char baseTwo) {

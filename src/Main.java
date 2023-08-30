@@ -25,9 +25,9 @@ public class Main {
     for (int i = 0; i < total; i++) {
       char character = leters[r.nextInt(3)];
       dnaBuilder.append(character);
-      // System.out.print(character); // Imprime entrada gerada
+      System.out.print(character); // Imprime entrada gerada
     }
-    // System.out.println("\n"); // Quebra de linha
+    System.out.println("\n"); // Quebra de linha
 
     long start = System.nanoTime();
     DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
