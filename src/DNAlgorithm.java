@@ -34,8 +34,13 @@ public class DNAlgorithm {
 
         if (current != prox) { // Se os caracteres são diferentes...
           dnaSequence.add(generate(current, prox)); // Realiza mutação e adiciona ao fim
-          dnaSequence.remove(i); // Remove as 2 bases antigas
-          dnaSequence.remove(i);
+          if (i == 0) {
+            dnaSequence.removeFirst();
+            dnaSequence.removeFirst();
+          } else {
+            dnaSequence.remove(i); // Remove as 2 bases antigas
+            dnaSequence.remove(i);
+          }
           change = true; // Valida o iterador
           break; // Interrompe a iteração para reinicar no começo da lista
         }
