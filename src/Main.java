@@ -22,15 +22,18 @@ public class Main {
     char[] leters = { 'D', 'N', 'A' };
     StringBuilder dnaBuilder = new StringBuilder();
 
-    System.out.println("Entrada:");
     for (int i = 0; i < total; i++) {
       char character = leters[r.nextInt(3)];
       dnaBuilder.append(character);
-      System.out.print(character);
+      // System.out.print(character); // Imprime entrada gerada
     }
-    System.out.println("\n"); // Quebra de linha
+    // System.out.println("\n"); // Quebra de linha
 
+    long start = System.nanoTime();
     DNAlgorithm dna = new DNAlgorithm(dnaBuilder.toString());
-    System.out.println("Resultado:\n" + dna.mutation());
+    System.out.println("Resultado: " + dna.mutation()); // Imprime saída
+    long end = System.nanoTime();
+    System.out.println("\nEntrada \t Tempo(ns)");
+    System.out.printf("%d \t %d\n", total, end - start);
   }
 }

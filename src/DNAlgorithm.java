@@ -1,10 +1,25 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class DNAlgorithm {
+
   private LinkedList<Character> dnaSequence;
+  private Map<Character, Map<Character, Character>> cache;
 
   public DNAlgorithm(String dna) {
     dnaSequence = new LinkedList<>();
+    cache = new HashMap<>();
+
+    cache.put('D', new HashMap<>());
+    cache.get('D').put('A', 'N');
+    cache.get('D').put('N', 'A');
+
+    cache.put('N', new HashMap<>());
+    cache.get('N').put('A', 'D');
+    cache.get('N').put('D', 'A');
+
+    cache.put('A', new HashMap<>());
+    cache.get('A').put('D', 'N');
+    cache.get('A').put('N', 'D');
 
     for (char c : dna.toCharArray()) { // Preenche a lista
       dnaSequence.add(c);
@@ -41,25 +56,7 @@ public class DNAlgorithm {
   }
 
   private char generate(char baseOne, char baseTwo) {
-    switch (baseOne) { // Verifica a nova base a ser gerada...
-      case 'D':
-        if (baseTwo == 'A')
-          return 'N';
-        if (baseTwo == 'N')
-          return 'A';
-        break;
-      case 'N':
-        if (baseTwo == 'A')
-          return 'D';
-        if (baseTwo == 'D')
-          return 'A';
-        break;
-      case 'A':
-        if (baseTwo == 'D')
-          return 'N';
-        if (baseTwo == 'N')
-          return 'D';
-    }
-    return '#';
+    return cache.getOrDefault(baseOne, new HashMap<>())
+        .getOrDefault(baseTwo, '#');
   }
 }
